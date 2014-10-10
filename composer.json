@@ -4,7 +4,13 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"elasticsearch/elasticsearch": "~1.0",
+		"laravelbook/ardent": "2.4.*",
+		"jenssegers/mongodb": "*",
+		"hashids/hashids": "1.0.0",
+		"guzzlehttp/guzzle": "4.*"
+
 	},
 	"autoload": {
 		"classmap": [
@@ -17,7 +23,7 @@
 		],
 		"psr-0": {
 		  "Hack": "app"
-		},
+		}
 	},
 	"scripts": {
 		"post-install-cmd": [
