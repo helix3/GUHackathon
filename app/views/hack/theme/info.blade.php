@@ -46,7 +46,7 @@
 
                        <div class="col-md-10">
 
-                         <div class="thumbnail" style="opacity:0.8">
+                         <div class="thumbnail" style="opacity:0.8; position:absolute;">
 
                                  <div class=" contain" style="margin: 0 auto;
                                                                       display: block;
