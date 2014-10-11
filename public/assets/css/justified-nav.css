@@ -107,8 +107,8 @@ body {
 }
 
 .roundy {
-    -webkit-border-radius: 68px;
-    -moz-border-radius: 68px;
-    border-radius: 68px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
     padding: 25px;
 }

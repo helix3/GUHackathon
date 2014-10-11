@@ -27,54 +27,37 @@
                     overviewMapControl: false
                 });
 
-
-
                     var page = 2;
 
                     setInterval( function() {
 
-                        $.ajax({
-                            url: '/',
-                            type:'GET',
-                            data: "?&page="+page+"&search=<?= Input::get('search', '') ?>",
-                            success: function(html) {
-                                    html.data.forEach(function(entry) {
-                                    map.addMarker({
-                                        lat: entry.lat,
-                                        lng: entry.long,
-                                        infoWindow: {
-                                            content: '<p><h4><a class="various" data-fancybox-type="iframe" href="/resource/'+entry._id+'">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'
-                                        }
+                        if (page < 300) {
+                            $.ajax({
+                                url: '/',
+                                type:'GET',
+                                data: "&?page="+page+"?&search=<?= Input::get('search', '') ?>",
+                                success: function(html) {
+                                        html.data.forEach(function(entry) {
+                                        map.addMarker({
+                                            lat: entry.lat,
+                                            lng: entry.long,
+                                            infoWindow: {
+                                                content: '<p><h4><a class="various" data-fancybox-type="iframe" href="/resource/'+entry._id+'">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'
+                                            }
 
+                                        });
                                     });
-                                });
 
-                                page++;
+                                    page++;
 
-                            }
-                        });
+                                }
+                            });
+                        }
 
                     }, 10000); // 5 Second reload
 
             }
         );
-    </script>
-    <!--FANCYBOX JS -->
-    <script type="text/javascript">
-
-    $(document).ready(function() {
-    	$(".various").fancybox({
-    		maxWidth	: 800,
-    		maxHeight	: 600,
-    		fitToView	: false,
-    		width		: '70%',
-    		height		: '70%',
-    		autoSize	: false,
-    		closeClick	: false,
-    		openEffect	: 'none',
-    		closeEffect	: 'none'
-    	});
-    });
     </script>
 
 

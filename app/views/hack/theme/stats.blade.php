@@ -24,10 +24,24 @@
         </h3>
 
         <h3>
-            Bombing/Explosion Attacks: <?= \Hack\SasList::where('attack_type_id', '=', '0'x)->count() ?>
+            Armed Assault: 8952
         </h3>
 
-        </div>
+        <h3>
+            Bombing/Explosion Attacks: 45558
+        </h3>
+
+        <h3>
+            Assasination Attacks: 13258
+        </h3>
+
+        <h3>
+            Hijacking Attacks: 7506
+        </h3>
+
+        <h3>
+            Other Attacks: ...
+        </h3>
 
 
       </div>
@@ -46,5 +60,6 @@
 
 </div>
 
+</div>
 
 
