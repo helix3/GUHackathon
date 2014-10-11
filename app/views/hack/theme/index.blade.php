@@ -88,8 +88,9 @@
                             lat: entry.lat,
                             lng: entry.long,
                             infoWindow: {
-                                content: '<p><h4><a href="#">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'
+                                content: '<p><h4><a class="various" data-fancybox-type="iframe" href="#">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'
                             }
+
                         });
                         console.log(entry);
                         });
