@@ -14,19 +14,34 @@
 </div>
 
     </div>
+      </div>
+    </div> <!--end of row -->
 
   {{ Form::close() }}
 
 
-  </div>
+
 
 <?php else: ?>
+// map here!!!
 
-//map here
+<div class="before row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+                        new GMaps({
+                        div: '#map',
+                        lat: -12.043333,
+                        lng: -77.028333
+                        });
 
-<?php endif; ?>
-
-</div> <!--end of row -->
+                      </div>
+<div class="col-md-2"></div>
 
 
 </div>
+
+
+</div>
+<?php endif; ?>
+
+
