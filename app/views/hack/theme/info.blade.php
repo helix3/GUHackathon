@@ -52,7 +52,7 @@
                                                                       display: block;
                                                                       position: relative;
                                                                       ">
-                                                                      <div class="thumbnail" style="width:100%">
+                                                                      <div class="thumbnail" style="width:120%">
                                  <table class="table table-hover">
                                           <thead>
                                             <tr>
