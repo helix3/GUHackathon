@@ -90,9 +90,10 @@
 
         }
     );
-
-
+</script>
 <!--FANCYBOX JS -->
+<script type="text/javascript">
+
 $(document).ready(function() {
 	$(".various").fancybox({
 		maxWidth	: 800,
