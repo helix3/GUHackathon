@@ -118,7 +118,7 @@ class HomeController extends HackController
 
         $data = ''; //$this->sas->find($data_id);
 
-        $this->render('app::about', [
+        $this->render('hack::about', [
             'data' => $data,
 
         ]);

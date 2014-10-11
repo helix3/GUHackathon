@@ -48,7 +48,7 @@
                   <ul class="nav nav-justified">
                     <li class="<?= (Route::currentRouteName() == 'app.index') ? 'active' : '' ?>"><a href="/">Home</a></li>
                     <li class="<?= (Route::currentRouteName() == 'hack.stats') ? 'active' : '' ?>"><a href="/stats">Statistics</a></li>
-                    <li class="<?= (Route::currentRouteName() == 'app.about') ? 'active' : '' ?>"><a href="/about">About</a></li>
+                    <li class="<?= (Route::currentRouteName() == 'hack.about') ? 'active' : '' ?>"><a href="/about">About</a></li>
 
                   </ul>
                 </div>

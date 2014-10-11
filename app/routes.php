@@ -38,6 +38,6 @@ Route::get('/stats', [
 ]);
 
 Route::get('/about', [
-    'as' => 'app.about',
+    'as' => 'hack.about',
     'uses' => 'HomeController@about'
 ]);
