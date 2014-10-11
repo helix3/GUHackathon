@@ -69,7 +69,7 @@
                                           </thead>
                                           <tbody>
                                             <tr>
-                                                        <td><?= Carbon\Carbon::parse($data->date['date'])->toDateString() ?></td>
+                                                        <td><?= Carbon\Carbon::parse($data->date['date'])->toFormattedDateString() ?></td>
                                                         <td><?= $data->city.', '.$data->country ?></td>
                                                         <td><?= $data->attack_type ?></td>
                                                         <td><?= $data->target_type ?></td>
@@ -128,7 +128,7 @@
                             <form method="get" action="http://www.google.com/search">
                             <div style="padding:4px;width:20em;">
                              <table class="table table-hover"><tr><td>
-                              <input type="text" name="q" size="60" maxlength="255" value="<?= $data->date['date'].', '.$data->city.', '.$data->country.' Terrorist attack' ?>" />
+                              <input type="text" name="q" size="60" maxlength="255" value="<?= Carbon\Carbon::parse($data->date['date'])->toFormattedDateString().', '.$data->city.', '.$data->country.' Terrorist attack' ?>" />
                               <input type="submit" value="Google Search" /></td></tr>
                               </table> </div> </form>
 
