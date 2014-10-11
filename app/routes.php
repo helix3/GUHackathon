@@ -12,21 +12,21 @@
 */
 
 Route::get('/', [
-	'as'   => 'app.index',
-	'uses' => 'HomeController@index'
+    'as' => 'app.index',
+    'uses' => 'HomeController@index'
 ]);
 
 Route::post('/filter', [
-	'as'   => 'hack.filter',
-	'uses' => 'HomeController@filter'
+    'as' => 'hack.filter',
+    'uses' => 'HomeController@filter'
 ]);
 
 Route::get('resource/{id}', [
-	'as'   => 'app.resource.show',
-	'uses' => 'InfoController@index'
+    'as' => 'app.resource.show',
+    'uses' => 'InfoController@index'
 ]);
 
 Route::get('/stats', [
-	'as'   => 'hack.stats',
-	'uses' => 'InfoController@stats'
+    'as' => 'hack.stats',
+    'uses' => 'InfoController@stats'
 ]);

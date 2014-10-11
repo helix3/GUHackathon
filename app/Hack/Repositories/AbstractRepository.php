@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\MessageBag;
 use StdClass;
 
-abstract class AbstractRepository {
+abstract class AbstractRepository
+{
     /**
      * @var Illuminate\Database\Eloquent\Model
      */
@@ -24,6 +25,7 @@ abstract class AbstractRepository {
     {
         $this->errors = $errors;
     }
+
     /**
      * Start a transaction
      *

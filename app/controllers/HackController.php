@@ -1,6 +1,7 @@
 <?php
 
-abstract class HackController extends BaseController {
+abstract class HackController extends BaseController
+{
     /**
      * Include the base commodities
      * from this class

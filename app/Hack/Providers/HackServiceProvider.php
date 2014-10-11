@@ -2,7 +2,8 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class HackServiceProvider extends ServiceProvider {
+class HackServiceProvider extends ServiceProvider
+{
 
     /**
      * Bootstrap the application events.

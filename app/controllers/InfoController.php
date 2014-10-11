@@ -1,6 +1,7 @@
 <?php
 
-class InfoController extends HackController {
+class InfoController extends HackController
+{
 
     private $sas;
 
@@ -10,7 +11,8 @@ class InfoController extends HackController {
     /**
      * @param \Hack\Repositories\Sas\SasInterface $sas
      */
-    function __construct(\Hack\Repositories\Sas\SasInterface $sas) {
+    function __construct(\Hack\Repositories\Sas\SasInterface $sas)
+    {
 
         $this->sas = $sas;
     }

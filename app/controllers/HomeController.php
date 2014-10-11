@@ -1,84 +1,83 @@
 <?php
 
-class HomeController extends HackController {
+class HomeController extends HackController
+{
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
-	/**
-	 * sas
-	 *
-	 * @var \Hack\Repositories\Sas\SasInterface
-	 */
-	private $sas;
-
-	/**
-	 * @param \Hack\Repositories\Sas\SasInterface $sas
+    /*
+    |--------------------------------------------------------------------------
+    | Default Home Controller
+    |--------------------------------------------------------------------------
+    |
+    | You may wish to use controllers instead of, or in addition to, Closure
+    | based routes. That's great! Here is an example controller method to
+    | get you started. To route to this controller, just add the route:
+    |
+    |	Route::get('/', 'HomeController@showWelcome');
+    |
+    */
+    /**
+     * sas
+     *
+     * @var \Hack\Repositories\Sas\SasInterface
      */
-	function __construct(\Hack\Repositories\Sas\SasInterface $sas) {
+    private $sas;
 
-		$this->sas = $sas;
-	}
+    /**
+     * @param \Hack\Repositories\Sas\SasInterface $sas
+     */
+    function __construct(\Hack\Repositories\Sas\SasInterface $sas)
+    {
 
-	public function index()
-	{
+        $this->sas = $sas;
+    }
 
-		if (Input::has('search')) {
+    public function index()
+    {
 
-			$data = $this->sas->make([])
-				->where('country', 'LIKE', '%'.Input::get('search').'%')
-				->orWhere('city', 'LIKE', '%'.Input::get('search').'%')
-				->orWhere('date', 'LIKE', '%'.Input::get('search').'%')
-				->orWhere('attack_type', 'LIKE', '%'.Input::get('search').'%')
-				->orWhere('date', 'LIKE', '%'.Input::get('search').'%')
-				->paginate(10);
+        if (Input::has('search')) {
 
-
-
-		} else {
-
-			$data = $this->sas->make([])->paginate(10);
-
-		}
-
-		if (\Request::ajax()) {
-
-			return Response::json(
-				$data->toArray()
-			);
-
-		}
+            $data = $this->sas->make([])
+                ->where('country', 'LIKE', '%' . Input::get('search') . '%')
+                ->orWhere('city', 'LIKE', '%' . Input::get('search') . '%')
+                ->orWhere('date', 'LIKE', '%' . Input::get('search') . '%')
+                ->orWhere('attack_type', 'LIKE', '%' . Input::get('search') . '%')
+                ->orWhere('date', 'LIKE', '%' . Input::get('search') . '%')
+                ->paginate(10);
 
 
-		$this->render('hack::index', [
-			'data' => $data,
+        } else {
 
-		]);
-	}
+            $data = $this->sas->make([])->paginate(10);
 
-	/**
-	 * Redirect from FORM filter to URL
-	 *
-	 * @return mixed
-	 */
-	public function filter()
-	{
-		// Strip out previous input from previous url.
-		preg_match("/.*?((?:\\/[\\w\\.\\-]+)+)/is", URL::previous(), $url);
+        }
 
-		return Redirect::to($url[0] . '?' . http_build_query(Input::except('_token')));
-	}
+        if (\Request::ajax()) {
+
+            return Response::json(
+                $data->toArray()
+            );
+
+        }
 
 
+        $this->render('hack::index', [
+            'data' => $data,
+
+        ]);
+    }
+
+    /**
+     * Redirect from FORM filter to URL
+     *
+     * @return mixed
+     */
+    public function filter()
+    {
+        // Strip out previous input from previous url.
+        preg_match("/.*?((?:\\/[\\w\\.\\-]+)+)/is", URL::previous(), $url);
+
+        return Redirect::to($url[0] . '?' . http_build_query(Input::except('_token')));
+    }
 
 
 }

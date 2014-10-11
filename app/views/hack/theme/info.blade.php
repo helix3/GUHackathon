@@ -41,6 +41,7 @@
          <body>
 
 
+
          <table class="table table-hover">
          <thead>
            <tr>
@@ -56,7 +57,7 @@
               <th>Property damage</th>
               <th>Notes</th>
 
-           </tr> 
+           </tr>
          </thead>
          <tbody>
            <tr>
@@ -71,12 +72,12 @@
                        <td></td>
                        <td></td>
                        <td></td>
-         
-                    </tr> 
-         
-         
+
+                    </tr>
+
+
          </tbody>
-         
+
 
          </table>
 

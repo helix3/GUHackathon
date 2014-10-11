@@ -3,7 +3,8 @@
 use Hack\Repositories\AbstractRepository;
 use Jenssegers\Mongodb\Model;
 
-class EloquentSas extends AbstractRepository implements SasInterface  {
+class EloquentSas extends AbstractRepository implements SasInterface
+{
     /**
      * @var \Illuminate\Database\Eloquent\Model
      */

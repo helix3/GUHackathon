@@ -1,5 +1,6 @@
 <?php namespace Hack\Repositories\Sas;
 
-interface SasInterface {
+interface SasInterface
+{
 
 }
