@@ -136,6 +136,12 @@
                                           </div>
 
 
+                            <form method="get" action="http://www.google.com/search">
+                            <div style="border:1px solid black;padding:4px;width:20em;">
+                             <table border="0" cellpadding="0"> <tr><td>
+                              <input type="text" name="q" size="25" maxlength="255" value="" />
+                              <input type="submit" value="Google Search" /></td></tr>
+                              </table> </div> </form>
 
 
 
