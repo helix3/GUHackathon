@@ -46,12 +46,13 @@
 
                        <div class="col-md-10">
 
-                         <div class="thumbnail">
+
 
                                  <div class=" contain" style="margin: 0 auto;
                                                                       display: block;
                                                                       position: relative;
                                                                       ">
+                                                                      <div class="thumbnail">
                                  <table class="table table-hover">
                                           <thead>
                                             <tr>
