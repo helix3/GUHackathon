@@ -113,3 +113,7 @@ body {
     padding: 25px;
 }
 .thumbnail { opacity:0.8; }
+
+.slides > li { margin-right: 20px;
+    width:100%;
+}
