@@ -63,15 +63,14 @@
 
                 var page = 2;
 
-
                 setInterval( function() {
 
                     $.ajax({
                         url: '/',
                         type:'GET',
-                        data: "?page="+page+"&search=<?= Input::get('search', '') ?>",
+                        data: "?&page="+page+"&search=<?= Input::get('search', '') ?>",
                         success: function(html) {
-                            html.data.forEach(function(entry) {
+                                html.data.forEach(function(entry) {
                                 map.addMarker({
                                     lat: entry.lat,
                                     lng: entry.long,
@@ -80,8 +79,9 @@
                                     }
 
                                 });
-                        });
-                        page++;
+                            });
+
+                            page++;
 
                         }
                     });

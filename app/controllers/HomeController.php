@@ -42,13 +42,7 @@ class HomeController extends HackController {
 				->orWhere('date', 'LIKE', '%'.Input::get('search').'%')
 				->paginate(10);
 
-			if (\Request::ajax()) {
 
-				return Response::json(
-					$data->toArray()
-				);
-
-			}
 
 		} else {
 
@@ -56,7 +50,13 @@ class HomeController extends HackController {
 
 		}
 
+		if (\Request::ajax()) {
 
+			return Response::json(
+				$data->toArray()
+			);
+
+		}
 
 
 		$this->render('hack::index', [

@@ -4,6 +4,9 @@ class InfoController extends HackController {
 
     private $sas;
 
+    protected $layout = 'hack::layouts.file';
+
+
     /**
      * @param \Hack\Repositories\Sas\SasInterface $sas
      */

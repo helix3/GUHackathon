@@ -25,3 +25,8 @@ Route::get('resource/{id}', [
 	'as'   => 'app.resource.show',
 	'uses' => 'InfoController@index'
 ]);
+
+Route::get('/stats', [
+	'as'   => 'hack.stats',
+	'uses' => 'InfoController@stats'
+]);
