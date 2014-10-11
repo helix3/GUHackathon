@@ -34,6 +34,32 @@ class HomeController extends HackController
     public function index()
     {
 
+        $limit = 10;
+        $page  = $this->input('get', [ 'page', '1' ]);
+
+
+        $query = json_decode(json_encode($this->search->search([
+            'index' => 'sas',
+            'body' => [
+                'query' => [
+                    "multi_match" => [
+                        "query" =>    $this->input('get', [ 'search', '*']),
+                        "type"  =>       "most_fields",
+                        "fields" => [ "_all" ]
+                    ]
+                ],
+
+                'size' => $limit,
+                'from' => $limit * ($page - 1),
+            ]
+        ])));
+
+        dd($query);
+    }
+
+    public function indexOld()
+    {
+
         if (Input::has('search')) {
 
             $data = $this->sas->make([])
