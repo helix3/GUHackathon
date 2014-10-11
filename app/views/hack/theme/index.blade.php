@@ -66,7 +66,7 @@
                         lat: <?= $value->lat ?>,
                         lng: <?= $value->long ?>,
                         infoWindow: {
-                            content: '<p><h4><a href="#"><?= addslashes($value->attack_type) ?></a></h4> <br> <?= $value->date ?> <?= addslashes($value->city) ?>, <?= addslashes($value->country) ?> </p>'
+                            content: '<p><h4><a href="file.blade.php"><?= addslashes($value->attack_type) ?></a></h4> <br> <?= $value->date ?> <?= addslashes($value->city) ?>, <?= addslashes($value->country) ?> </p>'
                         }
                     });
 
