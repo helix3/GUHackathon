@@ -137,9 +137,9 @@
 
 
                             <form method="get" action="http://www.google.com/search">
-                            <div style="padding:4px;width:50em;">
+                            <div style="padding:4px;width:20em;">
                              <table class="table table-hover"><tr><td>
-                              <input type="text" name="q" size="25" maxlength="255" value="<?= $data->date['date'].', '.$data->city.', '.$data->country.' Terrorist attack' ?>" />
+                              <input type="text" name="q" size="60" maxlength="255" value="<?= $data->date['date'].', '.$data->city.', '.$data->country.' Terrorist attack' ?>" />
                               <input type="submit" value="Google Search" /></td></tr>
                               </table> </div> </form>
 
