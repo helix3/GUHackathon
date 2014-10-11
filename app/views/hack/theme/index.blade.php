@@ -32,6 +32,25 @@
 
   <div id="map"></div>
 
+
+  <!--FANCYBOX JS -->
+  <script type="text/javascript">
+
+  $(document).ready(function() {
+  	$(".various").fancybox({
+  		maxWidth	: 800,
+  		maxHeight	: 600,
+  		fitToView	: false,
+  		width		: '70%',
+  		height		: '70%',
+  		autoSize	: false,
+  		closeClick	: false,
+  		openEffect	: 'none',
+  		closeEffect	: 'none'
+  	});
+  });
+  </script>
+
     <!--Google maps-->
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -91,23 +110,7 @@
         }
     );
 </script>
-<!--FANCYBOX JS -->
-<script type="text/javascript">
 
-$(document).ready(function() {
-	$(".various").fancybox({
-		maxWidth	: 800,
-		maxHeight	: 600,
-		fitToView	: false,
-		width		: '70%',
-		height		: '70%',
-		autoSize	: false,
-		closeClick	: false,
-		openEffect	: 'none',
-		closeEffect	: 'none'
-	});
-});
-</script>
 
 
 
