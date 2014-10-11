@@ -20,7 +20,7 @@ class InfoController extends HackController {
 
         $data = $this->sas->find($data_id);
 
-        $this->render('hack::file', [
+        $this->render('hack::info', [
             'data' => $data,
 
         ]);
