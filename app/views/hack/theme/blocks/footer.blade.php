@@ -33,10 +33,10 @@
 
                         //if (page < 300) {
                             $.ajax({
-                                url: '/?page="+page+"&search=<?= Input::get('search', '') ?>"',
+                                url: '/?search=<?= Input::get('search', '') ?>&page='+page,
                                 type:'GET',
                                 success: function(html) {
-                                console.log(page,html)
+
                                         html.data.forEach(function(entry) {
                                         map.addMarker({
                                             lat: entry.lat,
@@ -55,8 +55,7 @@
                             });
                         //}
 
-                    }, 1
-                    ); // 5 Second reload
+                    }, 100); // 5 Second reload
 
             }
         );
