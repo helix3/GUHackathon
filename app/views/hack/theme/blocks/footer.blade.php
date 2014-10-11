@@ -33,9 +33,8 @@
 
                         //if (page < 300) {
                             $.ajax({
-                                url: '/',
+                                url: '/?page="+page+"&search=<?= Input::get('search', '') ?>"',
                                 type:'GET',
-                                data: "page="+page+"&search=<?= Input::get('search', '') ?>",
                                 success: function(html) {
                                 console.log(page,html)
                                         html.data.forEach(function(entry) {
