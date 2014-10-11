@@ -60,8 +60,6 @@ class HomeController extends HackController
     public function index()
     {
 
-        if (Input::has('search')) {
-
             $data = $this->sas->make([])
                 ->where('country', 'LIKE', '%' . Input::get('search') . '%')
                 ->orWhere('city', 'LIKE', '%' . Input::get('search') . '%')
@@ -73,13 +71,7 @@ class HomeController extends HackController
                 ->orWhere('target_type', 'LIKE', '%' . Input::get('search') . '%')
                 ->orWhere('attack_type', 'LIKE', '%' . Input::get('search') . '%')
                 ->orWhere('date', 'LIKE', '%' . Input::get('search') . '%')
-                ->paginate(10);
-
-        } else {
-
-            $data = $this->sas->make([])->paginate(1);
-
-        }
+                ->paginate(5);
 
         if (\Request::ajax()) {
 
