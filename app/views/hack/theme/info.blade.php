@@ -46,7 +46,7 @@
 
                        <div class="col-md-10">
 
-                         <div class="panel contain  roundy" style="background-color: rgba(131, 111, 111, 0.4)">
+                         <div class="thumbnail" style="opacity:0.8">
 
                                  <div class=" contain" style="margin: 0 auto;
                                                                       display: block;
@@ -147,43 +147,45 @@
 <div class="flexslider">
   <ul class="slides">
     <li>
-      <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+      <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
     </li>
     <li>
-      <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+      <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
     </li>
     <li>
-      <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg"/>
+      <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg"/>
     </li>
     <li>
-      <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+      <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
     </li>
 
-      <li>
-          <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+    <li>
+          <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
         </li>
         <li>
-          <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+          <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
         </li>
         <li>
-          <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg"/>
+          <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg"/>
         </li>
         <li>
-          <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+          <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
         </li>
 
-          <li>
-              <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+        <li>
+              <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
             </li>
             <li>
-              <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+              <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
             </li>
             <li>
-              <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg"/>
+              <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg"/>
             </li>
             <li>
-              <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+              <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
             </li>
+
+
   </ul>
 </div>
 
