@@ -80,4 +80,15 @@ class HomeController extends HackController
     }
 
 
+    public function stats()
+    {
+
+        $data = ''; //$this->sas->find($data_id);
+
+        $this->render('hack::stats', [
+            'data' => $data,
+
+        ]);
+    }
+
 }

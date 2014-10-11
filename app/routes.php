@@ -28,5 +28,5 @@ Route::get('resource/{id}', [
 
 Route::get('/stats', [
     'as' => 'hack.stats',
-    'uses' => 'InfoController@stats'
+    'uses' => 'HomeController@stats'
 ]);
