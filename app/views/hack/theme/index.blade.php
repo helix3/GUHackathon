@@ -27,13 +27,13 @@
 
 <div class="before row">
 <div class="col-md-2"></div>
-<div class="col-md-8">
+<div class="col-md-8"> <script type="text/javascript">
                         new GMaps({
                         div: '#map',
                         lat: -12.043333,
                         lng: -77.028333
                         });
-
+                        </script>
                       </div>
 <div class="col-md-2"></div>
 
