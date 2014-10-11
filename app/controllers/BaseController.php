@@ -2,7 +2,7 @@
 
 class BaseController extends Controller {
 
-	protected $layout = 'hack::layouts.default';
+	protected $layout = 'hack.theme.layouts.default';
 
 	/**
 	 * Setup the layout used by the controller.

@@ -8,7 +8,7 @@
         <title>ALPHA PRO</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="public/assets/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/assets/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
         <link href="justified-nav.css" rel="stylesheet">

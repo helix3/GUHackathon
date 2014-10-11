@@ -1,6 +1,6 @@
 <?php
 
-class HomeController extends BaseController {
+class HomeController extends HackController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		return View::make('hack.theme.index');
+		$this->layout->content = View::make('hack.theme.index');
 	}
 
 }
