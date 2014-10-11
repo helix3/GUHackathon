@@ -105,3 +105,10 @@ body {
     width: 800px;
     z-index: 2;
 }
+
+.roundy {
+    -webkit-border-radius: 68px;
+    -moz-border-radius: 68px;
+    border-radius: 68px;
+    padding: 25px;
+}
