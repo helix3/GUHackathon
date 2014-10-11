@@ -15,33 +15,33 @@
       <div class="col-md-8">
 
         <div class="thumbnail" style="opacity:0.8;">
-        <h3>
+        <h5>
             Terorism acts since 1970 till now: <?= \Hack\SasList::count() ?>
-        </h3>
+        </h5>
 
-        <h3>
+        <h5>
             Total Data Size: 91871600 B
-        </h3>
+        </h5>
 
-        <h3>
+        <h5>
             Armed Assault: 8952
-        </h3>
+        </h5>
 
-        <h3>
+        <h5>
             Bombing/Explosion Attacks: 45558
-        </h3>
+        </h5>
 
-        <h3>
+        <h5>
             Assasination Attacks: 13258
-        </h3>
+        </h5>
 
-        <h3>
+        <h5>
             Hijacking Attacks: 7506
-        </h3>
+        </h5>
 
-        <h3>
+        <h5>
             Other Attacks: ...
-        </h3>
+        </h5>
 
 
       </div>
