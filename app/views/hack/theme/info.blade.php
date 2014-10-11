@@ -22,8 +22,7 @@
 
            <link rel="stylesheet" href="assets/fancybox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
            <script type="text/javascript" src="assets/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-        <!-- Custom styles for this template -->
-        <link href="/assets/css/justified-nav.css" rel="stylesheet">
+
            <title>World Terrorism Database</title>
 
            <!-- Bootstrap core CSS -->
@@ -42,49 +41,45 @@
          <body>
 
 
-         <div class="row">
 
-             <div class="col-lg- contain" style="margin: 0 auto;
-                                                  display: block;
-                                                  position: relative;">
-             <table class="table table-hover">
-                      <thead>
-                        <tr>
-                           <th>Date</th>
-                           <th>Location</th>
-                           <th>Attack type</th>
-                           <th>Target</th>
-                           <th>Terrorist organization</th>
-                           <th>Motive</th>
-                           <th>Weapon</th>
-                           <th>Property damage</th>
-                           <th>Notes</th>
+         <table class="table table-hover">
+         <thead>
+           <tr>
+              <th>Date</th>
+              <th>Location</th>
+              <th>Attack type</th>
+              <th>Target</th>
+              <th>Nationality of the target</th>
+              <th>Terrorist organization</th>
+              <th>Motive</th>
+              <th>Weapon</th>
+              <th>Killed/injured</th>
+              <th>Property damage</th>
+              <th>Notes</th>
 
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                                    <td><?= $data->date['date'] ?></td>
-                                    <td><?= $data->city.', '.$data->country ?></td>
-                                    <td><?= $data->attack_type ?></td>
-                                    <td><?= $data->target_type ?></td>
-                                    <td><?= $data->group ?></td>
-                                    <td><?= $data->motive ?></td>
-                                    <td><?= $data->weapons ?></td>
-                                    <td><?= $data->cost ? $data->cost : 'Unknown' ?></td>
-                                    <td><?= $data->notes ?></td>
-                                    <td></td>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
 
-                                 </tr>
-
-
-                      </tbody>
+                    </tr>
 
 
-                      </table>
-             </div>
+         </tbody>
 
-         </div>
+
+         </table>
 
 
 
@@ -93,46 +88,6 @@
 
 
 
-<div id="map"></div>
-
-    <!--Google maps-->
-
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="/assets/js/gmaps.js"></script>
-<script type="text/javascript">
-    //Initialize Clinics Map
-    $(document).ready( function()
-        {
-            var map;
-
-            map = new GMaps({
-                el: '#map',
-                lat: <?= $data->lat ?>,
-                lng: <?= $data->long ?>,
-                zoom: 4,
-                zoomControl : true,
-                zoomControlOpt: {
-                    style : 'SMALL',
-                    position: 'TOP_LEFT'
-                },
-                panControl : false,
-                streetViewControl : false,
-                mapTypeControl: false,
-                overviewMapControl: false
-            });
-
-            map.addMarker({
-                lat: <?= $data->lat ?>,
-                lng: <?= $data->long ?>,
-                infoWindow: {
-                    content: '<p><h4><a class="various" data-fancybox-type="iframe" href="/resource/'+entry._id+'">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'
-                }
-            });
-
-        }
-    );
-</script>
 
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
