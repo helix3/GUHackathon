@@ -35,7 +35,7 @@
                             $.ajax({
                                 url: '/',
                                 type:'GET',
-                                data: "?&page="+page+"&search=<?= Input::get('search', '') ?>",
+                                data: "page="+page+"&search=<?= Input::get('search', '') ?>",
                                 success: function(html) {
                                 console.log(page,html)
                                         html.data.forEach(function(entry) {
@@ -56,7 +56,8 @@
                             });
                         //}
 
-                    }, 1000); // 5 Second reload
+                    }, 1
+                    ); // 5 Second reload
 
             }
         );

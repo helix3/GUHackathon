@@ -51,7 +51,7 @@ class HomeController extends HackController
 
         } else {
 
-            $data = $this->sas->make([])->paginate(10);
+            $data = $this->sas->make([])->paginate(1);
 
         }
 
