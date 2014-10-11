@@ -17,7 +17,11 @@ class HomeController extends HackController {
 
 	public function index()
 	{
-		$this->layout->content = View::make('hack.theme.index');
+
+		$this->render('hack::index', [
+			'data' => '',
+
+		]);
 	}
 
 }

@@ -3,8 +3,7 @@
 @include('hack::blocks.header')
 
 
-  @yield('content')
-
+  <?php echo $content; ?>
 
 
 @include('hack::blocks.footer')
