@@ -135,7 +135,7 @@ $(window).load(function() {
   $('.flexslider').flexslider({
     animation: "slide",
     animationLoop: false,
-    itemWidth: 210,
+    itemWidth: 500,
     itemMargin: 5
   });
 });
