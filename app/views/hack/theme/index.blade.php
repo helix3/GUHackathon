@@ -48,7 +48,7 @@
                 el: '#map',
                 lat: 51.469948,
                 lng: 0.0525667,
-                zoom: 12,
+                zoom: 4,
                 zoomControl : true,
                 zoomControlOpt: {
                     style : 'SMALL',
