@@ -12,11 +12,6 @@ class HackServiceProvider extends ServiceProvider {
     public function boot()
     {
         require app_path('lib') . '/helpers.php';
-
-        require app_path() . '/composers.php';
-
-
-        require app_path('lib/macros') . '/general.php';
     }
 
 

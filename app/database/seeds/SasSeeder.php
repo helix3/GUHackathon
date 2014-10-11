@@ -1,10 +1,17 @@
 <?php
 
-class TagSeeder extends Seeder {
+class SasSeeder extends Seeder {
 
     public function run()
     {
-        DB::connection('mongodb')->table('sas')->delete();
+
+        ini_set("memory_limit","7G");
+        ini_set('max_execution_time', '0');
+        ini_set('max_input_time', '0');
+        set_time_limit(0);
+        ignore_user_abort(true);
+        //DB::connection('mongodb')->table('sas')->delete();
+
 
         $this->command->info('Sas destroyed.');
 
@@ -12,33 +19,72 @@ class TagSeeder extends Seeder {
 
         $repo = App::make('Hack\Repositories\Sas\SasInterface');
 
-        $csv = array_map('str_getcsv', file($file_path));
+        if(($handle = fopen($file_path, 'r')) !== false)
+        {
+            // get the first row, which contains the column-titles (if necessary)
+            //$header = fgetcsv($handle);
 
-        foreach (File::files($file_path) as $key => $value) {
-
-            $sas_id = $repo->create(array(
-
-                'event_id' => $value[0],
-                'date'     => \Carbon\Carbon::create($value[3].'-'.$value[2].'-'.$value[3]),
-                'country'  => $value[8],
-                'city'     => $value[12],
-                'lat'      => $value[13],
-                'long'     => $value[14],
-                'body'     => $value[18],
-                'attack_type' => $value[29],
+            // loop through the file line-by-line
+            while(($data = fgetcsv($handle)) !== false)
+            {
+                $value = $data;
+                $day = $value[3] ? $value[3] : 1;
+                $month = $value[2] ? $value[2] : 1;
+                $year = intval($value[1]) ? intval($value[1]) : 1970;
 
 
-            ));
+                $this->command->info('Chunk parsed');
 
+                var_dump($day . $month . $year);
+                $sas_id = $repo->create(array(
+                    'event_id' => $value[0],
+                    'date' => \Carbon\Carbon::createFromDate($year, $month, $day),
+                    'country' => utf8_encode(utf8_decode($value[8])),
+                    'city' => utf8_encode(utf8_decode($value[12])),
+                    'lat' => $value[13],
+                    'long' => $value[14],
+                    'body' => utf8_encode(utf8_decode($value[18])),
+                    'attack_type' => utf8_encode(utf8_decode($value[29])    ),
 
+                ));
+
+                unset($sas_id);
+
+                // resort/rewrite data and insert into DB here
+                // try to use conditions sparingly here, as those will cause slow-performance
+
+                // I don't know if this is really necessary, but it couldn't harm;
+                // see also: http://php.net/manual/en/features.gc.php
+                unset($data);
+            }
+            fclose($handle);
         }
 
-
-
-
-
-
        	$this->command->info('Sas seeded');
+    }
+
+    protected function file_get_contents_chunked($file,$chunk_size,$callback)
+    {
+        try
+        {
+            $handle = fopen($file, "r");
+            $i = 0;
+            while (!feof($handle))
+            {
+                call_user_func_array($callback,array(fread($handle,$chunk_size),&$handle,$i));
+                $i++;
+            }
+
+            fclose($handle);
+
+        }
+        catch(Exception $e)
+        {
+            trigger_error("file_get_contents_chunked::" . $e->getMessage(),E_USER_NOTICE);
+            return false;
+        }
+
+        return true;
     }
 
 }

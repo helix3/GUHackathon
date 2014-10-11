@@ -41,6 +41,15 @@ return array(
 			'prefix'   => '',
 			'schema'   => 'public',
 		),
+		'mongodb' => array(
+			'driver'   => 'mongodb',
+			'host'     => 'localhost',
+			'port'     => 27017,
+			'username' => '',
+			'password' => '',
+			'database' => 'hack'
+		),
+
 
 	),
 

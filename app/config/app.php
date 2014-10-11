@@ -122,6 +122,9 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
+		'Hack\Providers\HackServiceProvider',
+		'Hack\Providers\RepositoryServiceProvider',
+		'Jenssegers\Mongodb\MongodbServiceProvider',
 	),
 
 	/*

@@ -1,7 +1,7 @@
 <?php namespace Hack;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Jenssegers\Mongodb\Model;
 
 class SasList extends Model {
 
@@ -42,12 +42,14 @@ class SasList extends Model {
      * @var array
      */
     public $fillable = array(
-        'title',
-        'open',
-        'users',
-        'status',
-        'user_id',
-        'created_by'
+        'event_id',
+        'date',
+        'country',
+        'city',
+        'lat',
+        'long',
+        'body',
+        'attack_type'
     );
 
 }
