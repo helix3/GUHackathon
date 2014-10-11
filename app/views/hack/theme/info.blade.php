@@ -36,6 +36,8 @@
              <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
              <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
            <![endif]-->
+
+            <link rel="stylesheet" href="/assets/flexslider/flexslider.css" type="text/css" media="screen" />
          </head>
 
          <body>
@@ -82,12 +84,63 @@
          </table>
 
 
+<div class="flexslider">
+  <ul class="slides">
+    <li>
+      <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+    </li>
+    <li>
+      <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+    </li>
+    <li>
+      <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg"/>
+    </li>
+    <li>
+      <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+    </li>
 
+      <li>
+          <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+        </li>
+        <li>
+          <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+        </li>
+        <li>
+          <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg"/>
+        </li>
+        <li>
+          <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+        </li>
 
+          <li>
+              <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+            </li>
+            <li>
+              <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+            </li>
+            <li>
+              <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg"/>
+            </li>
+            <li>
+              <img src="/assets/demo/images/kitchen_adventurer_caramel.jpg" />
+            </li>
+  </ul>
+</div>
 
+<!-- FlexSlider -->
+  <script defer src="../jquery.flexslider.js"></script>
 
+  <script type="text/javascript">
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    animationLoop: false,
+    itemWidth: 210,
+    itemMargin: 5
+  });
+});
 
-
+</script>
 
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
