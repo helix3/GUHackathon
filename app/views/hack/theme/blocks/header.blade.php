@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>ALPHA PRO</title>
+        <title>World Terrorism Database</title>
 
         <!-- Bootstrap core CSS -->
         <link href="/assets/bootstrap-3.2.0-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
       <div class="container">
 
             <div class="masthead">
-              <h3 class="text-muted">Project name</h3>
+              <h3 class="text-muted">World Terrorism Database</h3>
               <ul class="nav nav-justified">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">Statistics</a></li>
