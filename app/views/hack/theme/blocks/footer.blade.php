@@ -42,6 +42,7 @@
                                         map.addMarker({
                                             lat: entry.lat,
                                             lng: entry.long,
+                                            animation: google.maps.Animation.DROP,
                                             infoWindow: {
                                                 content: '<p><h4><a class="various" data-fancybox-type="iframe" href="/resource/'+entry._id+'">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'
                                             }

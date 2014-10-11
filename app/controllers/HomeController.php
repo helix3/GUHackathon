@@ -40,10 +40,14 @@ class HomeController extends HackController
                 ->where('country', 'LIKE', '%' . Input::get('search') . '%')
                 ->orWhere('city', 'LIKE', '%' . Input::get('search') . '%')
                 ->orWhere('date', 'LIKE', '%' . Input::get('search') . '%')
+                ->orWhere('cost', 'LIKE', '%' . Input::get('search') . '%')
+                ->orWhere('notes', 'LIKE', '%' . Input::get('search') . '%')
+                ->orWhere('weapons', 'LIKE', '%' . Input::get('search') . '%')
+                ->orWhere('motive', 'LIKE', '%' . Input::get('search') . '%')
+                ->orWhere('target_type', 'LIKE', '%' . Input::get('search') . '%')
                 ->orWhere('attack_type', 'LIKE', '%' . Input::get('search') . '%')
                 ->orWhere('date', 'LIKE', '%' . Input::get('search') . '%')
                 ->paginate(10);
-
 
         } else {
 
