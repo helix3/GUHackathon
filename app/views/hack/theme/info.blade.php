@@ -199,7 +199,7 @@
 
 
 <!-- FlexSlider -->
-  <script defer src="../jquery.flexslider.js"></script>
+  <script defer src="/assets/flexslider/jquery.flexslider.js"></script>
 
   <script type="text/javascript">
 $(document).load(function() {
