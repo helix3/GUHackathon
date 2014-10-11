@@ -208,18 +208,26 @@
 <!-- FlexSlider -->
   <script defer src="/assets/flexslider/jquery.flexslider.js"></script>
 
-  <script type="text/javascript">
-$(document).load(function() {
-  $('.flexslider').flexslider({
-    animation: "slide",
-    animationLoop: false,
-    itemWidth: 500,
-    itemMargin: 5
-  });
+<script type="text/javascript">
+$(function(){
+SyntaxHighlighter.all();
 });
+$(window).load(function(){
+$('.flexslider').flexslider({
 
+
+animation: "slide",
+animationLoop: true,
+itemWidth: 150,
+itemMargin: 20,
+pausePlay: false,
+controlNav: false,
+start: function(slider){
+$('body').removeClass('loading');
+}
+});
+});
 </script>
-
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="assets/js/bootstrap.min.js"></script>
 
