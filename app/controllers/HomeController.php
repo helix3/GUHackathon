@@ -31,11 +31,11 @@ class HomeController extends HackController
         $this->sas = $sas;
     }
 
-    public function index()
+    public function indexNew()
     {
 
         $limit = 10;
-        $page  = $this->input('get', [ 'page', '1' ]);
+        $page  = Input::get('page', 1);
 
 
         $query = json_decode(json_encode($this->search->search([
@@ -43,7 +43,7 @@ class HomeController extends HackController
             'body' => [
                 'query' => [
                     "multi_match" => [
-                        "query" =>    $this->input('get', [ 'search', '*']),
+                        "query" =>    Input::get('search', '*'),
                         "type"  =>       "most_fields",
                         "fields" => [ "_all" ]
                     ]
@@ -57,7 +57,7 @@ class HomeController extends HackController
         dd($query);
     }
 
-    public function indexOld()
+    public function index()
     {
 
         if (Input::has('search')) {
