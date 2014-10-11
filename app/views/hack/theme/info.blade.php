@@ -135,7 +135,7 @@
                         lat: <?= $data->lat ?>,
                         lng: <?= $data->long ?>,
                         infoWindow: {
-                            content: '<p><h4><a class="various" data-fancybox-type="iframe" href="/resource/'+entry._id+'">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'
+                            content: '<p><h4><a  href="/resource/'+entry._id+'">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'
                         }
                     });
 
