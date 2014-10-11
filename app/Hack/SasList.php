@@ -3,7 +3,8 @@
 use Illuminate\Support\Str;
 use Jenssegers\Mongodb\Model;
 
-class SasList extends Model {
+class SasList extends Model
+{
 
     /**
      * The database table used by the model.
@@ -19,13 +20,9 @@ class SasList extends Model {
      */
     public $rules = array(
 
-        'save' => array(
+        'save' => array(),
 
-        ),
-
-        'create' => array(
-
-        ),
+        'create' => array(),
 
         'update' => array()
 
@@ -49,7 +46,16 @@ class SasList extends Model {
         'lat',
         'long',
         'body',
-        'attack_type'
+        'attack_type',
+        'attack_type_id',
+        'target_type',
+        'target_type_id',
+        'group_name',
+        'motive',
+        'weapons',
+        'weapon_id',
+        'cost',
+        'notes',
     );
 
 }

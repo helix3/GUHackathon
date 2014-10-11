@@ -1,11 +1,12 @@
 <?php
 
-class SasSeeder extends Seeder {
+class SasSeeder extends Seeder
+{
 
     public function run()
     {
 
-        ini_set("memory_limit","7G");
+        ini_set("memory_limit", "7G");
         ini_set('max_execution_time', '0');
         ini_set('max_input_time', '0');
         set_time_limit(0);
@@ -19,18 +20,16 @@ class SasSeeder extends Seeder {
 
         $repo = App::make('Hack\Repositories\Sas\SasInterface');
 
-        if(($handle = fopen($file_path, 'r')) !== false)
-        {
+        if (($handle = fopen($file_path, 'r')) !== false) {
             // get the first row, which contains the column-titles (if necessary)
             //$header = fgetcsv($handle);
 
             // loop through the file line-by-line
-            while(($data = fgetcsv($handle)) !== false)
-            {
+            while (($data = fgetcsv($handle)) !== false) {
                 $value = $data;
-                $day = $value[3] ? $value[3] : 1;
-                $month = $value[2] ? $value[2] : 1;
-                $year = intval($value[1]) ? intval($value[1]) : 1970;
+                $day = intval($value[3]) > 0 ? $value[3] : 1;
+                $month = intval($value[2]) > 0 ? $value[2] : 1;
+                $year = intval($value[1]) >0 ? intval($value[1]) : 1970;
 
 
                 $this->command->info('Chunk parsed');
@@ -44,7 +43,16 @@ class SasSeeder extends Seeder {
                     'lat' => $value[13],
                     'long' => $value[14],
                     'body' => utf8_encode(utf8_decode($value[18])),
-                    'attack_type' => utf8_encode(utf8_decode($value[29])    ),
+                    'attack_type' => utf8_encode(utf8_decode($value[29])),
+                    'attack_type_id' => utf8_encode(utf8_decode($value[28])),
+                    'target_type' => utf8_encode(utf8_decode($value[35])),
+                    'target_type_id' => utf8_encode(utf8_decode($value[34])),
+                    'group_name' => utf8_encode(utf8_decode($value[58])),
+                    'motive' => utf8_encode(utf8_decode($value[64])),
+                    'weapons' => utf8_encode(utf8_decode($value[81])),
+                    'weapon_id' => utf8_encode(utf8_decode($value[81])),
+                    'cost' => utf8_encode(utf8_decode($value[105])),
+                    'notes' => utf8_encode(utf8_decode($value[124])),
 
                 ));
 
@@ -60,27 +68,23 @@ class SasSeeder extends Seeder {
             fclose($handle);
         }
 
-       	$this->command->info('Sas seeded');
+        $this->command->info('Sas seeded');
     }
 
-    protected function file_get_contents_chunked($file,$chunk_size,$callback)
+    protected function file_get_contents_chunked($file, $chunk_size, $callback)
     {
-        try
-        {
+        try {
             $handle = fopen($file, "r");
             $i = 0;
-            while (!feof($handle))
-            {
-                call_user_func_array($callback,array(fread($handle,$chunk_size),&$handle,$i));
+            while (!feof($handle)) {
+                call_user_func_array($callback, array(fread($handle, $chunk_size), &$handle, $i));
                 $i++;
             }
 
             fclose($handle);
 
-        }
-        catch(Exception $e)
-        {
-            trigger_error("file_get_contents_chunked::" . $e->getMessage(),E_USER_NOTICE);
+        } catch (Exception $e) {
+            trigger_error("file_get_contents_chunked::" . $e->getMessage(), E_USER_NOTICE);
             return false;
         }
 

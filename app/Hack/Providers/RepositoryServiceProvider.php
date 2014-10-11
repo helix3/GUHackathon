@@ -4,7 +4,8 @@ use Hack\Repositories\Sas\EloquentSas;
 use Hack\SasList;
 use Illuminate\Support\ServiceProvider;
 
-class RepositoryServiceProvider extends ServiceProvider {
+class RepositoryServiceProvider extends ServiceProvider
+{
 
     public function register()
     {
