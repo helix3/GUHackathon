@@ -24,16 +24,19 @@
       <body>
       <div class="container">
 
-            <div class="masthead">
-              <h3 class="text-muted">World Terrorism Database</h3>
-              <ul class="nav nav-justified">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Statistics</a></li>
-                <li><a href="#">Unknown</a></li>
-                <li><a href="#">About</a></li>
+            <div class="contain">
+                <div class="masthead">
+                  <h3 class="text-muted">World Terrorism Database</h3>
+                  <ul class="nav nav-justified">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Statistics</a></li>
+                    <li><a href="#">Unknown</a></li>
+                    <li><a href="#">About</a></li>
 
-              </ul>
+                  </ul>
+                </div>
             </div>
+
 
 
 
