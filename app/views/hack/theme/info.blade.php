@@ -64,13 +64,12 @@
                                                <th>Motive</th>
                                                <th>Weapon</th>
                                                <th>Property damage</th>
-                                               <th>Notes</th>
 
                                             </tr>
                                           </thead>
                                           <tbody>
                                             <tr>
-                                                        <td><?= $data->date['date'] ?></td>
+                                                        <td><?= Carbon\Carbon::parse($data->date['date'])->toDateString() ?></td>
                                                         <td><?= $data->city.', '.$data->country ?></td>
                                                         <td><?= $data->attack_type ?></td>
                                                         <td><?= $data->target_type ?></td>
@@ -78,10 +77,8 @@
                                                         <td><?= $data->motive ?></td>
                                                         <td><?= $data->weapons ?></td>
                                                         <td><?= $data->cost ? $data->cost : 'Unknown' ?></td>
-                                                        <td><?= $data->notes ?></td>
 
-
-                                                     </tr>
+                                            </tr>
 
 
                                           </tbody>
@@ -89,49 +86,41 @@
 
                                           </table>
 
+                                          <div class="row">
+
+
+                                            <div class="col-lg-12">
+
+                                            <h4>
+                                                Relevant Wikipedia articles
+                                            </h4>
+                                            <ul>
+                                                <?php foreach($wiki as $item): ?>
+
+                                                    <li>
+                                                        <a href="<?= $item['fullurl'] ?>" title="Updated: <?= $item['touched'] ?>" target="_blank">
+                                                            <?= $item['title'] ?>
+                                                        </a>
+                                                    </li>
+
+                                                <?php endforeach; ?>
+
+                                            </ul>
+
+                                            </div>
+                                          </div>
+
 
                                           <div class="flexslider">
                                             <ul class="slides">
-                                              <li>
-                                                <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
-                                              </li>
-                                              <li>
-                                                <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
-                                              </li>
-                                              <li>
-                                                <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg"/>
-                                              </li>
-                                              <li>
-                                                <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
-                                              </li>
 
+                                            <?php foreach($bing as $image): ?>
                                               <li>
-                                                    <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
-                                                  </li>
-                                                  <li>
-                                                    <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
-                                                  </li>
-                                                  <li>
-                                                    <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg"/>
-                                                  </li>
-                                                  <li>
-                                                    <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
-                                                  </li>
-
-                                                  <li>
-                                                        <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
-                                                      </li>
-                                                      <li>
-                                                        <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
-                                                      </li>
-                                                      <li>
-                                                        <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg"/>
-                                                      </li>
-                                                      <li>
-                                                        <img src="/assets/flexslider/demo/images/kitchen_adventurer_caramel.jpg" />
-                                                      </li>
-
-
+                                                <a href="<?= $image['SourceUrl'] ?>" target="_blank">
+                                                    <img src="<?= $image['Thumbnail']['MediaUrl'] ?>" title="<?=  $image['Title'] ?>" />
+                                                </a>
+                                              </li>
+                                            <?php endforeach; ?>
                                             </ul>
                                           </div>
 
@@ -153,7 +142,11 @@
 
 
 
-                    <a href="/" class="btn btn-lg btn-primary text-center contain" style="bottom: 0; position: absolute; left: 18%"> Home</a>
+                    <a href="/" class="btn btn-primary text-center contain" style="width: 130px;
+                                                                                   position: absolute;
+                                                                                   /* left: 0; */
+                                                                                   right: 15px;
+                                                                                   top: 20px;"> Go Back</a>
 
 </div>
 

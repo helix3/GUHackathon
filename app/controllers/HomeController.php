@@ -29,6 +29,9 @@ class HomeController extends HackController
     {
 
         $this->sas = $sas;
+
+        $this->search = new \Elasticsearch\Client(Config::get('elasticsearch.settings'));
+
     }
 
     public function indexNew()

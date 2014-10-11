@@ -117,3 +117,9 @@ body {
 .slides > li { margin-right: 20px;
     width:100%;
 }
+
+.flexslider .slides > li {
+    display: none;
+    -webkit-backface-visibility: hidden;
+    height: 100px !important;
+}
