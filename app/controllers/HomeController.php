@@ -34,7 +34,7 @@ class HomeController extends HackController {
 		if (\Illuminate\Support\Facades\Input::has('search')) {
 
 		}
-		$data = $this->sas->make([])->paginate(10000);
+		$data = $this->sas->make([])->paginate(100);
 
 		$this->render('hack::index', [
 			'data' => $data,
