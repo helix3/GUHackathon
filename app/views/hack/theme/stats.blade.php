@@ -14,7 +14,7 @@
       <div class="col-md-2"></div>
       <div class="col-md-8">
 
-        <div class="panel roundy">
+        <div class="thumbnail">
         <h3>
             Terorism acts since 1970 till now: <?= \Hack\SasList::count() ?>
         </h3>
