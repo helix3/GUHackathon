@@ -31,12 +31,13 @@
 
                     setInterval( function() {
 
-                        if (page < 300) {
+                        //if (page < 300) {
                             $.ajax({
                                 url: '/',
                                 type:'GET',
-                                data: "&?page="+page+"?&search=<?= Input::get('search', '') ?>",
+                                data: "?&page="+page+"&search=<?= Input::get('search', '') ?>",
                                 success: function(html) {
+                                console.log(page,html)
                                         html.data.forEach(function(entry) {
                                         map.addMarker({
                                             lat: entry.lat,
@@ -52,9 +53,9 @@
 
                                 }
                             });
-                        }
+                        //}
 
-                    }, 10000); // 5 Second reload
+                    }, 1000); // 5 Second reload
 
             }
         );
