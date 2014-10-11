@@ -15,3 +15,8 @@ Route::get('/', [
 	'as'   => 'app.index',
 	'uses' => 'HomeController@index'
 ]);
+
+Route::post('/filter', [
+	'as'   => 'hack.filter',
+	'uses' => 'HomeController@filter'
+]);
