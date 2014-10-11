@@ -113,4 +113,15 @@ class HomeController extends HackController
         ]);
     }
 
+    public function about()
+    {
+
+        $data = ''; //$this->sas->find($data_id);
+
+        $this->render('app::about', [
+            'data' => $data,
+
+        ]);
+    }
+
 }
