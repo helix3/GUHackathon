@@ -1,3 +1,5 @@
+
+
 @include('hack::blocks.header')
 
 @include('blocks.notices.all')
