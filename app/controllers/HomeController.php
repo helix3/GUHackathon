@@ -32,20 +32,31 @@ class HomeController extends HackController {
 	public function index()
 	{
 
-		if (\Illuminate\Support\Facades\Input::has('search')) {
+		if (Input::has('search')) {
+
+			$data = $this->sas->make([])
+				->where('country', 'LIKE', '%'.Input::get('search').'%')
+				->orWhere('city', 'LIKE', '%'.Input::get('search').'%')
+				->orWhere('date', 'LIKE', '%'.Input::get('search').'%')
+				->orWhere('attack_type', 'LIKE', '%'.Input::get('search').'%')
+				->orWhere('date', 'LIKE', '%'.Input::get('search').'%')
+				->paginate(10);
+
+			if (\Request::ajax()) {
+
+				return Response::json(
+					$data->toArray()
+				);
+
+			}
+
+		} else {
+
+			$data = $this->sas->make([])->paginate(10);
 
 		}
 
-		$data = $this->sas->make([])->paginate(10);
 
-
-		if (\Request::ajax()) {
-
-			return Response::json(
-				$data->toArray()
-			);
-
-		}
 
 
 		$this->render('hack::index', [

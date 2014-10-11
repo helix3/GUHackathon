@@ -2,7 +2,7 @@
 <div class="contain">
 
 
-<?php if (!Input::has('search')): ?>
+<?php if (!Input::has('search') or true): ?>
 
   <div class="before row">
 
@@ -12,7 +12,7 @@
     <div class="form-group">
 
       <div class="col-md-3"></div>
-      <div class="col-md-6"><input type="text" class="form-control" id="InputSearch" name="search" placeholder="Search here!"></div>
+      <div class="col-md-6"><input type="text" class="form-control" id="InputSearch" name="search" placeholder="Search here!" value="<?= Input::get('search') ?>"></div>
       <div class="col-md-3">  {{ Form::submit('Search', ['class' => 'btn btn-white', 'style' => 'height: 35px;'] ) }}
       </div>
 
@@ -58,57 +58,41 @@
                 mapTypeControl: false,
                 overviewMapControl: false
             });
-            <?php foreach ($data as $key => $value) { ?>
 
-                <?php if($value->lat > 0.00000000): ?>
-                    map.addMarker({
-                        lat: <?= $value->lat ?>,
-                        lng: <?= $value->long ?>,
-                        infoWindow: {
-                            content: '<p><h4><a href="file.blade.php"><?= addslashes($value->attack_type) ?></a></h4>  <?= $value->date['date'] ?> <?= addslashes($value->city) ?>, <?= addslashes($value->country) ?> </p>'
-                        }
-                    });
-                <?php endif ?>
-
-            <?php } ?>
 
 
                 var page = 2;
+
 
                 setInterval( function() {
 
                     $.ajax({
                         url: '/',
                         type:'GET',
-                        data: "&page=" +page,
+                        data: "?page="+page+"&search=<?= Input::get('search', '') ?>",
                         success: function(html) {
+                            html.data.forEach(function(entry) {
+                                map.addMarker({
+                                    lat: entry.lat,
+                                    lng: entry.long,
+                                    infoWindow: {
+                                        content: '<p><h4><a class="various" data-fancybox-type="iframe" href="/resource/'+entry._id+'">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'
+                                    }
 
-                        html.data.forEach(function(entry) {
-                        map.addMarker({
-                            lat: entry.lat,
-                            lng: entry.long,
-                            infoWindow: {
-                                content: '<p><h4><a class="various" data-fancybox-type="iframe" href="#">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'
-                            }
-
+                                });
                         });
-                        console.log(entry);
-                        });
-
                         page++;
 
                         }
                     });
 
-                }, 100); // 5 Second reload
+                }, 1000); // 5 Second reload
 
         }
     );
 
 
 </script>
-
-    <script src="/assets/js/main.js"></script>
 
 
 

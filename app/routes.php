@@ -20,3 +20,8 @@ Route::post('/filter', [
 	'as'   => 'hack.filter',
 	'uses' => 'HomeController@filter'
 ]);
+
+Route::get('resource/{id}', [
+	'as'   => 'app.resource.show',
+	'uses' => 'InfoController@index'
+]);
