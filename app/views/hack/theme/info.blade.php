@@ -79,7 +79,7 @@
                                                         <td><?= $data->weapons ?></td>
                                                         <td><?= $data->cost ? $data->cost : 'Unknown' ?></td>
                                                         <td><?= $data->notes ?></td>
-                                                        <td></td>
+
 
                                                      </tr>
 
