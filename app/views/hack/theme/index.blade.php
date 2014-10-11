@@ -37,7 +37,6 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script src="/assets/js/gmaps.js"></script>
-
 <script type="text/javascript">
     //Initialize Clinics Map
     $(document).ready( function()
@@ -69,18 +68,46 @@
                             content: '<p><h4><a href="#"><?= addslashes($value->attack_type) ?></a></h4>  Date: <?= $value->date['date'] ?><br> Location: <?= addslashes($value->city) ?>, <?= addslashes($value->country) ?> </p>'
                         }
                     });
-
-                <?php else: ?>
-
                 <?php endif ?>
 
             <?php } ?>
+
+
+                var page = 2;
+
+                setInterval( function() {
+
+                    $.ajax({
+                        url: '/',
+                        type:'GET',
+                        data: "&page=" +page,
+                        success: function(html) {
+
+                        html.data.forEach(function(entry) {
+                        map.addMarker({
+                            lat: entry.lat,
+                            lng: entry.long,
+                            infoWindow: {
+                                content: '<p><h4><a href="#">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'
+                            }
+                        });
+                        console.log(entry);
+                        });
+
+                        page++;
+
+                        }
+                    });
+
+                }, 100); // 5 Second reload
 
         }
     );
 
 
 </script>
+
+    <script src="/assets/js/main.js"></script>
 
 
 

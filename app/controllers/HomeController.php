@@ -31,10 +31,22 @@ class HomeController extends HackController {
 
 	public function index()
 	{
+
 		if (\Illuminate\Support\Facades\Input::has('search')) {
 
 		}
-		$data = $this->sas->make([])->paginate(100);
+
+		$data = $this->sas->make([])->paginate(10);
+
+
+		if (\Request::ajax()) {
+
+			return Response::json(
+				$data->toArray()
+			);
+
+		}
+
 
 		$this->render('hack::index', [
 			'data' => $data,
