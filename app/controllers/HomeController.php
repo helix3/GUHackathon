@@ -74,6 +74,8 @@ class HomeController extends HackController
                 ->orWhere('target_type', 'LIKE', '%' . Input::get('search') . '%')
                 ->orWhere('attack_type', 'LIKE', '%' . Input::get('search') . '%')
                 ->orWhere('date', 'LIKE', '%' . Input::get('search') . '%')
+                ->orWhere('body', 'LIKE', '%' . Input::get('search') . '%')
+                ->orWhere('notes', 'LIKE', '%' . Input::get('search') . '%')
                 ->orderBy('weapons')
                 ->paginate(15);
 
