@@ -49,8 +49,8 @@ class InfoController extends HackController
             'data' => $data,
             'wiki' => $wiki->json()['query']['pages'],
             'bing' => $bing->json()['d']['results'],
-            'events' => $wolfram->xml()->pod[1]->subpod,
-            'weather' => $weather->xml()
+            'events' => count($wolfram->xml()->pod) > 0 ? $wolfram->xml()->pod[1]->subpod : array(),
+            'weather' => count($weather->xml()->pod) > 0 ?  $weather->xml() : false
         ]);
     }
 

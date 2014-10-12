@@ -119,7 +119,7 @@
                                                     Weather that day in <?= $data->city.', '.$data->country ?>
                                                 </h4>
 
-                                                    <img src="<?= $weather->pod[1]->subpod->img['src'] ?>">
+                                                    <img src="<?= $weather ? $weather->pod[1]->subpod->img['src'] : 'Could not fetch the data' ?>">
                                             </div>
 
                                             <div class="col-lg-6">
