@@ -89,7 +89,7 @@
                                           <div class="row">
 
 
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-4">
 
                                                 <h4>
                                                     Notes
@@ -98,7 +98,7 @@
                                                     <?= $data->notes ?>
                                             </div>
 
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-8">
                                                 <h4>
                                                     Notable Events in <?= Carbon\Carbon::parse($data->date['date'])->year ?>
                                                 </h4>
