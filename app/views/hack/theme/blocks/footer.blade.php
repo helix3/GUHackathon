@@ -39,22 +39,46 @@
 
                                         html.data.forEach(function(entry) {
 
-
-//                                        switch(entry.attack_type_id) {
-//                                            case n:
-//                                                code block
-//                                                break;
-//                                            case n:
-//                                                code block
-//                                                break;
-//                                            default:
-//                                                default code block
-//                                        }
+                                        var color = '';
+                                        switch(entry.attack_type_id) {
+                                            case '1':
+                                                color = 'ff0000';
+                                                break;
+                                            case '2':
+                                                color = '83b81a';
+                                                break;
+                                            case '3':
+                                                color = 'ea4c89';
+                                                break;
+                                            case '4':
+                                                color = 'a58559';
+                                                break;
+                                            case '5':
+                                                color = 'eeeeee';
+                                                break;
+                                            case '6':
+                                                color = '15495d';
+                                                break;
+                                            case '7':
+                                                color = '00ee88';
+                                                break;
+                                            case '8':
+                                                color = 'f57d00';
+                                                break;
+                                            case '9':
+                                                color = 'b6bf00';
+                                                break;
+                                            case '10':
+                                                color = '007bc1';
+                                                break;
+                                            default:
+                                                color = '81017e';
+                                        }
 
                                         map.addMarker({
                                             lat: entry.lat,
                                             lng: entry.long,
-                                          //  icon: 'http://www.googlemapsmarkers.com/v1/'+entry.attack_type_id+'/'+color,
+                                            icon: 'http://www.googlemapsmarkers.com/v1/'+color,
                                             animation: google.maps.Animation.DROP,
                                             infoWindow: {
                                                 content: '<p><h4><a  href="/resource/'+entry._id+'">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'

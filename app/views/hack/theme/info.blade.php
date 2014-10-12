@@ -92,6 +92,12 @@
                                             <div class="col-lg-12">
 
                                             <h4>
+                                                Notes
+                                            </h4>
+
+                                                <?= $data->notes ?>
+
+                                            <h4>
                                                 Relevant Wikipedia articles
                                             </h4>
                                             <ul>
@@ -125,12 +131,12 @@
                                           </div>
 
 
-                            <form method="get" action="http://www.google.com/search">
-                            <div style="padding:4px;width:20em;">
-                             <table class="table table-hover"><tr><td>
-                              <input type="text" name="q" size="60" maxlength="255" value="<?= Carbon\Carbon::parse($data->date['date'])->toFormattedDateString().', '.$data->city.', '.$data->country.' Terrorist attack' ?>" />
-                              <input type="submit" value="Google Search" /></td></tr>
-                              </table> </div> </form>
+                                    <form method="get" action="http://www.google.com/search">
+                                    <div style="padding:4px;width:20em;">
+                                     <table class="table table-hover"><tr><td>
+                                      <input type="text" name="q" size="60" maxlength="255" value="<?= Carbon\Carbon::parse($data->date['date'])->toFormattedDateString().', '.$data->city.', '.$data->country.' Terrorist attack' ?>" />
+                                      <input type="submit" value="Google Search" /></td></tr>
+                                      </table> </div> </form>
 
 
 
@@ -192,9 +198,7 @@
                     map.addMarker({
                         lat: <?= $data->lat ?>,
                         lng: <?= $data->long ?>,
-                        infoWindow: {
-                            content: '<p><h4><a  href="/resource/'+entry._id+'">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'
-                        }
+
                     });
 
                 }
