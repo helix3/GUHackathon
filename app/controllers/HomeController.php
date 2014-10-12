@@ -30,7 +30,7 @@ class HomeController extends HackController
 
         $this->sas = $sas;
 
-        $this->search = new \Elasticsearch\Client(Config::get('elasticsearch.settings'));
+       // $this->search = new \Elasticsearch\Client(Config::get('elasticsearch.settings'));
 
     }
 
@@ -41,23 +41,23 @@ class HomeController extends HackController
         $page  = Input::get('page', 1);
 
 
-        $query = json_decode(json_encode($this->search->search([
-            'index' => 'sas',
-            'body' => [
-                'query' => [
-                    "multi_match" => [
-                        "query" =>    Input::get('search', '*'),
-                        "type"  =>       "most_fields",
-                        "fields" => [ "_all" ]
-                    ]
-                ],
-
-                'size' => $limit,
-                'from' => $limit * ($page - 1),
-            ]
-        ])));
-
-        dd($query);
+//        $query = json_decode(json_encode($this->search->search([
+//            'index' => 'sas',
+//            'body' => [
+//                'query' => [
+//                    "multi_match" => [
+//                        "query" =>    Input::get('search', '*'),
+//                        "type"  =>       "most_fields",
+//                        "fields" => [ "_all" ]
+//                    ]
+//                ],
+//
+//                'size' => $limit,
+//                'from' => $limit * ($page - 1),
+//            ]
+//        ])));
+//
+//        dd($query);
     }
 
     public function index()
