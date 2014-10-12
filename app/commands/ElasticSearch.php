@@ -26,7 +26,7 @@ class ElasticSearch extends \Illuminate\Console\Command {
     {
         parent::__construct();
 
-        $this->elasticsearch = new \Elasticsearch\Client(Config::get('elasticsearch.settings'));
+        $this->elasticsearch = ''; //new \Elasticsearch\Client(Config::get('elasticsearch.settings'));
 
         $this->guzzle = new \GuzzleHttp\Client();
     }

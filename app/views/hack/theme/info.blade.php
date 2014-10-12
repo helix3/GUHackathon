@@ -89,29 +89,55 @@
                                           <div class="row">
 
 
-                                            <div class="col-lg-12">
+                                            <div class="col-lg-6">
 
-                                            <h4>
-                                                Notes
-                                            </h4>
+                                                <h4>
+                                                    Notes
+                                                </h4>
 
-                                                <?= $data->notes ?>
+                                                    <?= $data->notes ?>
+                                            </div>
 
-                                            <h4>
+                                            <div class="col-lg-6">
+                                                <h4>
+                                                    Notable Events in <?= Carbon\Carbon::parse($data->date['date'])->year ?>
+                                                </h4>
+                                                <ul>
+                                                    <?php foreach($events as $item): ?>
+
+                                                        <li>
+                                                            <img src="<?= $item->img['src'] ?>">
+                                                        </li>
+
+                                                    <?php endforeach; ?>
+
+                                                </ul>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <h4>
+                                                    Weather that day in <?= $data->city.', '.$data->country ?>
+                                                </h4>
+
+                                                    <img src="<?= $weather->pod[1]->subpod->img['src'] ?>">
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <h4>
                                                 Relevant Wikipedia articles
-                                            </h4>
-                                            <ul>
-                                                <?php foreach($wiki as $item): ?>
+                                                </h4>
+                                                <ul>
+                                                    <?php foreach($wiki as $item): ?>
 
-                                                    <li>
-                                                        <a href="<?= $item['fullurl'] ?>" title="Updated: <?= $item['touched'] ?>" target="_blank">
-                                                            <?= $item['title'] ?>
-                                                        </a>
-                                                    </li>
+                                                        <li>
+                                                            <a href="<?= $item['fullurl'] ?>" title="Updated: <?= $item['touched'] ?>" target="_blank">
+                                                                <?= $item['title'] ?>
+                                                            </a>
+                                                        </li>
 
-                                                <?php endforeach; ?>
+                                                    <?php endforeach; ?>
 
-                                            </ul>
+                                                </ul>
 
                                             </div>
                                           </div>

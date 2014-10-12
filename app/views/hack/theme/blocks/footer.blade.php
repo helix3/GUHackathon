@@ -27,6 +27,8 @@
                     overviewMapControl: false
                 });
 
+
+
                     var page = 2;
 
                     setInterval( function() {

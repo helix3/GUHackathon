@@ -40,11 +40,17 @@ class InfoController extends HackController
 
         }
 
+        $wolfram = $this->guzzle->get('http://api.wolframalpha.com/v2/query?input=notable%20events%20in%20'.Carbon\Carbon::parse($data->date['date'])->year.'&appid=TLQ89Y-WT6Y5773XK');
+
+
+        $weather = $this->guzzle->get('http://api.wolframalpha.com/v2/query?input=weather%20at%20'.Carbon\Carbon::parse($data->date['date'])->toFormattedDateString().'%20in%20'.$data->city.'&appid=TLQ89Y-WT6Y5773XK');
+
         $this->render('hack::info', [
             'data' => $data,
             'wiki' => $wiki->json()['query']['pages'],
-            'bing' => $bing->json()['d']['results']
-
+            'bing' => $bing->json()['d']['results'],
+            'events' => $wolfram->xml()->pod[1]->subpod,
+            'weather' => $weather->xml()
         ]);
     }
 
