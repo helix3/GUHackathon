@@ -30,7 +30,7 @@ class HomeController extends HackController
 
         $this->sas = $sas;
 
-       // $this->search = new \Elasticsearch\Client(Config::get('elasticsearch.settings'));
+        $this->search = new \Elasticsearch\Client(Config::get('elasticsearch.settings'));
 
     }
 
@@ -41,41 +41,65 @@ class HomeController extends HackController
         $page  = Input::get('page', 1);
 
 
-//        $query = json_decode(json_encode($this->search->search([
-//            'index' => 'sas',
-//            'body' => [
-//                'query' => [
-//                    "multi_match" => [
-//                        "query" =>    Input::get('search', '*'),
-//                        "type"  =>       "most_fields",
-//                        "fields" => [ "_all" ]
-//                    ]
-//                ],
-//
-//                'size' => $limit,
-//                'from' => $limit * ($page - 1),
-//            ]
-//        ])));
-//
-//        dd($query);
+        $data = json_decode(json_encode($this->search->search([
+            'index' => 'sas',
+            'body' => [
+                'query' => [
+                    "multi_match" => [
+                        "query" =>   Input::get('search', 'a') ,
+                        "type"  =>       "best_fields",
+                        "fields" => [ "_all" ]
+                    ]
+                ],
+
+                'size' => $limit,
+                'from' => $limit * ($page - 1),
+            ]
+        ])));
+
+        if (\Request::ajax()) {
+
+            return Response::json(
+                $data->hits->hits
+            );
+
+        }
+
+
+        $this->render('hack::index', [
+            'data' => $data->hits->hits,
+
+        ]);
     }
 
     public function index()
     {
 
             $data = $this->sas->make([])
-                ->where('country', 'LIKE', '%' . Input::get('search') . '%')
-                ->orWhere('city', 'LIKE', '%' . Input::get('search') . '%')
-                ->orWhere('date', 'LIKE', '%' . Input::get('search') . '%')
-                ->orWhere('cost', 'LIKE', '%' . Input::get('search') . '%')
-                ->orWhere('notes', 'LIKE', '%' . Input::get('search') . '%')
-                ->orWhere('weapons', 'LIKE', '%' . Input::get('search') . '%')
-                ->orWhere('motive', 'LIKE', '%' . Input::get('search') . '%')
-                ->orWhere('target_type', 'LIKE', '%' . Input::get('search') . '%')
-                ->orWhere('attack_type', 'LIKE', '%' . Input::get('search') . '%')
-                ->orWhere('date', 'LIKE', '%' . Input::get('search') . '%')
-                ->orWhere('body', 'LIKE', '%' . Input::get('search') . '%')
-                ->orWhere('notes', 'LIKE', '%' . Input::get('search') . '%')
+                ->Where(function($query)
+                {
+                    $query->where('country', 'LIKE', '%' . Input::get('search') . '%')
+                        ->orWhere('city', 'LIKE', '%' . Input::get('search') . '%')
+                        ->orWhere('date', 'LIKE', '%' . Input::get('search') . '%')
+                        ->orWhere('cost', 'LIKE', '%' . Input::get('search') . '%')
+                        ->orWhere('notes', 'LIKE', '%' . Input::get('search') . '%')
+                        ->orWhere('weapons', 'LIKE', '%' . Input::get('search') . '%')
+                        ->orWhere('motive', 'LIKE', '%' . Input::get('search') . '%')
+                        ->orWhere('target_type', 'LIKE', '%' . Input::get('search') . '%')
+                        ->orWhere('attack_type', 'LIKE', '%' . Input::get('search') . '%')
+                        ->orWhere('date', 'LIKE', '%' . Input::get('date') . '%')
+                        ->orWhere('body', 'LIKE', '%' . Input::get('search') . '%')
+                        ->orWhere('notes', 'LIKE', '%' . Input::get('search') . '%');
+                })
+                ->Where(function($query)
+                {
+                    $date = explode(" ", Input::get('search'));
+
+                    if (array_key_exists('1', $date)) {
+                        $query->where('date', 'LIKE', '%' . $date[1] . '%');
+                    }
+
+                })
                 ->orderBy('weapons')
                 ->paginate(15);
 

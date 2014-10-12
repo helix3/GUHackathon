@@ -29,17 +29,23 @@
 
 
 
-                    var page = 2;
+                    var page = 1;
 
                     setInterval( function() {
 
                         //if (page < 300) {
                             $.ajax({
-                                url: '/?search=<?= Input::get('search', '') ?>&page='+page,
+                                url: '/v2/?search=<?= Input::get('search', '') ?>?&page='+page,
                                 type:'GET',
                                 success: function(html) {
 
-                                        html.data.forEach(function(entry) {
+                                console.log(html);
+
+                                        html.forEach(function(entry) {
+
+
+                                        entry = entry._source;
+                                        console.log(entry);
 
                                         var color = '';
                                         switch(entry.attack_type_id) {

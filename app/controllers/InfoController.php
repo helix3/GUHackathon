@@ -31,6 +31,18 @@ class InfoController extends HackController
 
         $search_string = $data->city.' '.$data->country. ' Terrorist attack';
 
+//        $wiki = Cache::rememberForever('wiki'.$data_id, function() use ($search_string)
+//        {
+//        });
+//
+//        if (! Cache::has('wiki_'.$data_id))
+//        {
+//            $c = $this->guzzle->get('http://wikipedia.org/w/api.php?action=query&prop=info&inprop=url&list=search&format=json&srsearch=Roy%20Dowling&srnamespace=0&srwhat=nearmatch&srprop=size%7Cwordcount%7Ctimestamp%7Cscore%7Csnippet%7Ctitlesnippet%7Credirecttitle%7Credirectsnippet%7Csectiontitle%7Csectionsnippet%7Chasrelated&srlimit=10&srinterwiki=&srbackend=LuceneSearch&iwurl=&converttitles=&generator=search&gsrsearch=' .$search_string. '&gsrlimit=5');
+//
+//            Cache::rememberForever('wiki'.$data_id, function() use ($c)
+//            {
+//            });
+//        }
         $wiki = $this->guzzle->get('http://wikipedia.org/w/api.php?action=query&prop=info&inprop=url&list=search&format=json&srsearch=Roy%20Dowling&srnamespace=0&srwhat=nearmatch&srprop=size%7Cwordcount%7Ctimestamp%7Cscore%7Csnippet%7Ctitlesnippet%7Credirecttitle%7Credirectsnippet%7Csectiontitle%7Csectionsnippet%7Chasrelated&srlimit=10&srinterwiki=&srbackend=LuceneSearch&iwurl=&converttitles=&generator=search&gsrsearch=' .$search_string. '&gsrlimit=5');
 
 

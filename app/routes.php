@@ -17,7 +17,7 @@ Route::get('/', [
 ]);
 
 
-Route::get('/test', [
+Route::get('/v2', [
     'as' => 'app.index',
     'uses' => 'HomeController@indexNew'
 ]);
