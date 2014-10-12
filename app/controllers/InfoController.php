@@ -19,7 +19,7 @@ class InfoController extends HackController
 
         $this->guzzle = new \GuzzleHttp\Client();
 
-        $this->guzzle->getConfig()->set('curl.options', array(CURLOPT_VERBOSE => true));
+        //$this->guzzle->set('curl.options', array(CURLOPT_VERBOSE => true));
     }
 
     public function index($data_id)
