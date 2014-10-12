@@ -35,7 +35,7 @@
 
                         //if (page < 300) {
                             $.ajax({
-                                url: '/v2/?search=<?= Input::get('search', '') ?>?&page='+page,
+                                url: '/?search=<?= Input::get('search', 'a') ?>?&page='+page,
                                 type:'GET',
                                 success: function(html) {
 

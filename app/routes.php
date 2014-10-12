@@ -11,11 +11,16 @@
 |
 */
 
-Route::get('/', [
+Route::get('/wr', [
     'as' => 'app.index',
     'uses' => 'HomeController@index'
 ]);
 
+
+Route::get('/', [
+    'as' => 'app.index',
+    'uses' => 'HomeController@indexNew'
+]);
 
 Route::get('/v2', [
     'as' => 'app.index',

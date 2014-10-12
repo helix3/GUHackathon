@@ -2,19 +2,6 @@
 
 class HomeController extends HackController
 {
-
-    /*
-    |--------------------------------------------------------------------------
-    | Default Home Controller
-    |--------------------------------------------------------------------------
-    |
-    | You may wish to use controllers instead of, or in addition to, Closure
-    | based routes. That's great! Here is an example controller method to
-    | get you started. To route to this controller, just add the route:
-    |
-    |	Route::get('/', 'HomeController@showWelcome');
-    |
-    */
     /**
      * sas
      *
@@ -38,7 +25,7 @@ class HomeController extends HackController
     {
 
         $limit = 10;
-        $page  = Input::get('page', 1);
+        $page = Input::get('page', 1);
 
 
         $data = json_decode(json_encode($this->search->search([
@@ -46,9 +33,9 @@ class HomeController extends HackController
             'body' => [
                 'query' => [
                     "multi_match" => [
-                        "query" =>   Input::get('search', 'a') ,
-                        "type"  =>       "best_fields",
-                        "fields" => [ "_all" ]
+                        "query" => Input::get('search', ' a '),
+                        "type" => "best_fields",
+                        "fields" => ["_all"]
                     ]
                 ],
 
@@ -72,36 +59,35 @@ class HomeController extends HackController
         ]);
     }
 
+    // Old deprecated method to search without ElasticSearch
     public function index()
     {
 
-            $data = $this->sas->make([])
-                ->Where(function($query)
-                {
-                    $query->where('country', 'LIKE', '%' . Input::get('search') . '%')
-                        ->orWhere('city', 'LIKE', '%' . Input::get('search') . '%')
-                        ->orWhere('date', 'LIKE', '%' . Input::get('search') . '%')
-                        ->orWhere('cost', 'LIKE', '%' . Input::get('search') . '%')
-                        ->orWhere('notes', 'LIKE', '%' . Input::get('search') . '%')
-                        ->orWhere('weapons', 'LIKE', '%' . Input::get('search') . '%')
-                        ->orWhere('motive', 'LIKE', '%' . Input::get('search') . '%')
-                        ->orWhere('target_type', 'LIKE', '%' . Input::get('search') . '%')
-                        ->orWhere('attack_type', 'LIKE', '%' . Input::get('search') . '%')
-                        ->orWhere('date', 'LIKE', '%' . Input::get('date') . '%')
-                        ->orWhere('body', 'LIKE', '%' . Input::get('search') . '%')
-                        ->orWhere('notes', 'LIKE', '%' . Input::get('search') . '%');
-                })
-                ->Where(function($query)
-                {
-                    $date = explode(" ", Input::get('search'));
+        $data = $this->sas->make([])
+            ->Where(function ($query) {
+                $query->where('country', 'LIKE', '%' . Input::get('search') . '%')
+                    ->orWhere('city', 'LIKE', '%' . Input::get('search') . '%')
+                    ->orWhere('date', 'LIKE', '%' . Input::get('search') . '%')
+                    ->orWhere('cost', 'LIKE', '%' . Input::get('search') . '%')
+                    ->orWhere('notes', 'LIKE', '%' . Input::get('search') . '%')
+                    ->orWhere('weapons', 'LIKE', '%' . Input::get('search') . '%')
+                    ->orWhere('motive', 'LIKE', '%' . Input::get('search') . '%')
+                    ->orWhere('target_type', 'LIKE', '%' . Input::get('search') . '%')
+                    ->orWhere('attack_type', 'LIKE', '%' . Input::get('search') . '%')
+                    ->orWhere('date', 'LIKE', '%' . Input::get('date') . '%')
+                    ->orWhere('body', 'LIKE', '%' . Input::get('search') . '%')
+                    ->orWhere('notes', 'LIKE', '%' . Input::get('search') . '%');
+            })
+            ->Where(function ($query) {
+                $date = explode(" ", Input::get('search'));
 
-                    if (array_key_exists('1', $date)) {
-                        $query->where('date', 'LIKE', '%' . $date[1] . '%');
-                    }
+                if (array_key_exists('1', $date)) {
+                    $query->where('date', 'LIKE', '%' . $date[1] . '%');
+                }
 
-                })
-                ->orderBy('weapons')
-                ->paginate(15);
+            })
+            ->orderBy('weapons')
+            ->paginate(15);
 
         if (\Request::ajax()) {
 

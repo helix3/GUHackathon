@@ -29,7 +29,7 @@ class SasSeeder extends Seeder
                 $value = $data;
                 $day = intval($value[3]) > 0 ? $value[3] : 1;
                 $month = intval($value[2]) > 0 ? $value[2] : 1;
-                $year = intval($value[1]) >0 ? intval($value[1]) : 1970;
+                $year = intval($value[1]) > 0 ? intval($value[1]) : 1970;
 
 
                 $this->command->info('Chunk parsed');
