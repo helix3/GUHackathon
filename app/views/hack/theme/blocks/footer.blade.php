@@ -75,13 +75,18 @@
                                                 color = '81017e';
                                         }
 
+                                            var d = new Date(entry.date.date);
+                                            var curr_date = d.getDate();
+                                            var curr_month = d.getMonth() + 1; //Months are zero based
+                                            var curr_year = d.getFullYear();
+
                                         map.addMarker({
                                             lat: entry.lat,
                                             lng: entry.long,
                                             icon: 'http://www.googlemapsmarkers.com/v1/'+color,
                                             animation: google.maps.Animation.DROP,
                                             infoWindow: {
-                                                content: '<p><h4><a  href="/resource/'+entry._id+'">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'
+                                                content: '<p><h4><a  href="/resource/'+entry._id+'">'+entry.attack_type+'</a></h4>  Date: '+curr_date + "-" + curr_month + "-" + curr_year+'<br> Location: '+entry.city+', '+entry.country+' </p>'
                                             }
 
                                         });
@@ -93,7 +98,7 @@
                             });
                         //}
 
-                    }, 100); // 5 Second reload
+                    }, 1000); // 5 Second reload
 
             }
         );
