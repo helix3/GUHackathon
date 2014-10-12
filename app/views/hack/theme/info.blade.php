@@ -89,7 +89,7 @@
                                           <div class="row">
 
 
-                                            <div class="col-lg-4">
+                                            <div class="col-lg-5">
 
                                                 <h4>
                                                     Notes
@@ -98,7 +98,7 @@
                                                     <?= $data->notes ?>
                                             </div>
 
-                                            <div class="col-lg-8">
+                                            <div class="col-lg-7">
                                                 <h4>
                                                     Notable Events in <?= Carbon\Carbon::parse($data->date['date'])->year ?>
                                                 </h4>
@@ -114,15 +114,15 @@
                                                 </ul>
                                             </div>
 
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-3">
                                                 <h4>
                                                     Weather that day in <?= $data->city.', '.$data->country ?>
                                                 </h4>
 
-                                                    <img src="<?= $weather ? $weather->pod[1]->subpod->img['src'] : 'Could not fetch the data' ?>">
+                                                    <img src="<?= $weather ? $weather->pod[1]->subpod->img['src'] : '' ?>">
                                             </div>
 
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-7">
                                                 <h4>
                                                 Relevant Wikipedia articles
                                                 </h4>
