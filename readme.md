@@ -1,7 +1,7 @@
 
-Git repository for Glasgow University Hackathon 2014 for implementing and visualisng terrorist data provided by http://sas.com
+## Git repository for Glasgow University Hackathon 2014 for implementing and visualisng terrorist data provided by http://sas.com
 
-Technologies used:
+## Technologies used:
 
 Mongofb
 ElasticSearch
@@ -11,19 +11,21 @@ Twitter Bootsrap
 Javascript
 etc.
 
-APIS used:
+## APIS used:
 Bing
 Wikipedia
 Wolfram Alpha
 
-Team: 
+### Team: 
 Helix
 
-Team Members:
+### Team Members:
 Laurynas Sakalauskas
 Rokas Labeikis
 
 
-Archivements:
+####Archivements:
+
 SAS Challenge won
+
 4th place in overall
