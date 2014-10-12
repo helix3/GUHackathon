@@ -40,21 +40,21 @@
                                         html.data.forEach(function(entry) {
 
 
-                                        switch(entry.attack_type_id) {
-                                            case n:
-                                                code block
-                                                break;
-                                            case n:
-                                                code block
-                                                break;
-                                            default:
-                                                default code block
-                                        }
+//                                        switch(entry.attack_type_id) {
+//                                            case n:
+//                                                code block
+//                                                break;
+//                                            case n:
+//                                                code block
+//                                                break;
+//                                            default:
+//                                                default code block
+//                                        }
 
                                         map.addMarker({
                                             lat: entry.lat,
                                             lng: entry.long,
-                                            icon: 'http://www.googlemapsmarkers.com/v1/'+entry.attack_type_id+'/'+color,
+                                          //  icon: 'http://www.googlemapsmarkers.com/v1/'+entry.attack_type_id+'/'+color,
                                             animation: google.maps.Animation.DROP,
                                             infoWindow: {
                                                 content: '<p><h4><a  href="/resource/'+entry._id+'">'+entry.attack_type+'</a></h4>  Date: '+entry.date.date+'<br> Location: '+entry.city+', '+entry.country+' </p>'
