@@ -1,13 +1,12 @@
 
-## Git repository for Glasgow University Hackathon 2014 for implementing and visualisng terrorist data provided by http://sas.com
+## Git repo for Glasgow University Hackathon 2014 for implementing and visualisng terrorist data provided by http://sas.com
 
 ## Technologies used:
 
-Mongofb
+MongoDB
 ElasticSearch
 Laravel
-GMaps.js
-Twitter Bootsrap
+Bootsrap
 Javascript
 etc.
 
